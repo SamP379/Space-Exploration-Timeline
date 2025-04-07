@@ -2,8 +2,11 @@ import bs4
 import pandas
 import requests
 
+
 TIMELINE_URL = "https://en.wikipedia.org/wiki/Timeline_of_space_exploration"
 DATAFRAME_COLUMN_HEADERS = ("Date", "Event", "Country", "Researcher(s)") 
+TIMELINE_FILE_PATH = "timeline.csv"
+
 
 global timeline
 timeline = pandas.DataFrame(columns = DATAFRAME_COLUMN_HEADERS)
@@ -37,6 +40,7 @@ def scrape_timeline():
 def main():
     scrape_timeline()
     print(timeline)
+    timeline.to_csv(TIMELINE_FILE_PATH)
 
 
 if __name__ == "__main__":
