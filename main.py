@@ -39,7 +39,6 @@ def scrape_timeline():
 
 def main():
     scrape_timeline()
-    timeline = timeline.drop_duplicates()
     print(timeline)
     timeline.to_csv(TIMELINE_FILE_PATH)
 
