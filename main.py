@@ -4,7 +4,7 @@ import requests
 
 
 TIMELINE_URL = "https://en.wikipedia.org/wiki/Timeline_of_space_exploration"
-DATAFRAME_COLUMN_HEADERS = ("Date", "Event", "Country", "Researcher(s)") 
+DATAFRAME_COLUMN_HEADERS = ("Date", "Event", "Country", "Researcher/Mission") 
 TIMELINE_FILE_PATH = "timeline.csv"
 
 
@@ -39,6 +39,7 @@ def scrape_timeline():
 
 def main():
     scrape_timeline()
+    timeline = timeline.drop_duplicates()
     print(timeline)
     timeline.to_csv(TIMELINE_FILE_PATH)
 
