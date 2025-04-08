@@ -46,3 +46,7 @@ class Timeline:
         
         except Exception as error:
             print(f"An error occured: {error}")
+    
+
+    def display(self):
+        print(self.timeline)
