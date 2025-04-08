@@ -17,6 +17,7 @@ class Timeline:
     def load_timeline(self):
         if os.path.exists(self.file_path):
             self.timeline = pandas.read_csv(self.file_path)
+            self.was_loaded = True
         else:
             self.scrape_timeline()
     
@@ -43,6 +44,7 @@ class Timeline:
                 self.scrape_table(table)
             
             self.timeline.to_csv(self.file_path)
+            self.was_loaded = True
         
         except Exception as error:
             print(f"An error occured: {error}")
